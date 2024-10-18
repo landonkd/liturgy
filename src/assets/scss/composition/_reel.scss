@@ -1,0 +1,32 @@
+.reel {
+  display: flex;
+  block-size: auto;
+  gap: 0;
+  margin-inline-end: calc(-1* var(--site-gutter));
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block-end: var(--site-gutter);
+  padding-inline-end: var(--site-gutter);
+  scrollbar-color: var(--color-text) var(--color-bg);
+  scroll-snap-type: x mandatory;
+
+  > * {
+    flex: 1 0 260px;
+    min-inline-size: 33%;
+    scroll-snap-align: start;
+  }
+  
+  > img {
+    block-size: 100%;
+    flex-basis: auto;
+    inline-size: auto;
+  }
+  
+  > * + * {
+    margin-inline-start: var(--space-gap);
+  }
+
+  &.overflowing {
+    padding-block-end: var(--space-gap);
+  }
+}

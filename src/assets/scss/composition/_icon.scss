@@ -1,0 +1,17 @@
+.icon {
+  width: 1em;
+  // width: 1cap;
+  height: 1em;
+  // height: 1cap;
+  pointer-events: none;
+}
+
+.with-icon {
+  display: inline-flex;
+  // align-items: baseline;
+  align-items: center;
+}
+
+.with-icon .icon {
+  margin-inline-end: var(--space-sm);
+}

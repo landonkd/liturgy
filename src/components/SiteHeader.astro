@@ -1,0 +1,42 @@
+---
+import HeaderLink from './HeaderLink.astro';
+// import { SITE_TITLE } from '../consts';
+---
+
+<header class="site-header">
+	<nav class="site-nav">
+		<ul class="site-nav__list cluster">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/liturgy">Liturgy</HeaderLink>
+		</ul>
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		align-items: center;
+		background: var(--color-white);
+		border-bottom: 1px solid var(--color-border);
+		display: flex;
+	}
+
+	.site-nav {
+		margin-inline: auto;
+	}
+
+	.site-nav a {
+		padding: 1em 0.5em;
+		color: var(--color-black);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+
+	.site-nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--color-accent);
+	}
+
+	.site-nav__list {
+		margin: 0;
+	}
+</style>

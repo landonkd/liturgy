@@ -7,12 +7,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sass-dev": "sass --watch --update --style=expanded src/assets/scss:src/assets/css",
+    "sass-prod": "sass --no-source-map --style=compressed src/assets/scss:src/assets/css"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.1",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "astro": "^4.0.5"
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.5"
+  },
+  "devDependencies": {
+    "sass": "^1.80.2"
   }
 }

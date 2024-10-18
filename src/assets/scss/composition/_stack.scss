@@ -1,0 +1,41 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  > * {
+    margin-block: 0;
+  } 
+
+  > * + * {
+    margin-block-start: var(--space-stack);
+  }
+
+  &:only-child {
+    block-size: 100%;
+  }
+
+  &[data-split-after="2"] {
+    > :nth-child(2) {
+      margin-block-end: auto;
+    }
+  }
+
+  &[data-split-after="3"] {
+    > :nth-child(3) {
+      margin-block-end: auto;
+    }
+  }
+
+  &[data-split-before="last"] {
+    > :nth-last-child(2) {
+      margin-block-end: auto;
+    }
+  }
+
+  &[data-measure-children="true"] {
+    > * {
+      max-inline-size: var(--measure);
+    }
+  }
+}

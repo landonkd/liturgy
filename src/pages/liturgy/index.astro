@@ -1,0 +1,74 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+
+// const posts = (await getCollection('liturgy')).sort(
+// 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+// );
+const posts = (await getCollection('liturgy')).sort(
+	(a, b) => a.data.id.localeCompare(b.data.id)
+);
+---
+
+<!doctype html>
+<html lang="en">
+	
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<body class="site-layout">
+
+		<SiteHeader />
+
+		<main class="site-main">
+			<ol class="post-list stack">
+				{
+					posts.map((post) => (
+						<li class="post-item">
+							<a class="post-item__link cluster" href={`/liturgy/${post.slug}/`}>
+								<p class="post-item__label">#{post.data.id}-<FormattedDate date={post.data.date}></FormattedDate></p>
+								<h2 class="post-item__title">{post.data.title}</h2>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+		</main>
+
+		<SiteFooter />
+
+	</body>
+
+</html>
+
+<style>
+	.post-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.post-item {
+		* {
+			margin-block: 0;
+		}
+	}
+
+	.post-item__link {
+		text-decoration: none;
+	}
+
+	.post-item__label {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-1);
+	}
+
+	.post-item__title {
+		font-size: var(--font-size-1);
+	}
+</style>

@@ -1,0 +1,55 @@
+/* Screen readers only (visually hidden)
+-------------------------------------- */
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  &.focusable:active, 
+  &.focusable:focus {
+    position: static !important;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Links 
+-------------------------------------- */
+.cover-link {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/* True-ish utility classes 
+-------------------------------------- */
+.list-style\:none {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.font\:mono {
+  font-family: var(--font-mono);
+}
+
+.margin-inline\:full-bleed {
+  margin-inline: calc(-1 * var(--site-gutter));
+}
+
+.max-inline-size\:measure {
+  max-inline-size: var(--measure);
+}

@@ -1,0 +1,14 @@
+@keyframes screen-wipe {
+  0% {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  50% {
+    clip-path: inset(0% 50% 0% 50%);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+.screen-wipe {
+  animation: screen-wipe 1s 0s var(--ease-authentic);
+}

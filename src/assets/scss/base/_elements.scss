@@ -1,0 +1,103 @@
+/*
+Base elements
+----------------------------------- */
+html {
+  background-color: var(--color-bg);
+  font-size: var(--base-font-size);
+  scroll-behavior: smooth;
+  scroll-padding-block-start: var(--pad-lg);
+}
+
+body {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-0);
+  line-height: 1.444;
+	overflow-wrap: break-word;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+
+  &.site-overlay-active {
+    block-size: 100%;
+    inline-size: 100%;
+    overflow: hidden;
+    position: absolute;
+  }
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
+  text-decoration-style: solid;
+  text-decoration-thickness: 0.2ex;
+  text-underline-offset: 0.3ex;
+  transition: text-decoration-color 0.1s;
+
+  &:not(.btn) {
+    &:hover, &:focus {
+      color: var(--color-accent);
+      text-decoration-color: var(--color-accent);
+    }
+  }
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-sans);
+  margin-block-start: 0;
+
+  &:not(:first-child) {
+    margin-block-start: 1.5em;
+  }
+}
+
+h1 {
+  font-size: var(--font-size-4);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: var(--font-size-3);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+h3 {
+  font-size: var(--font-size-2);
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: var(--font-size-1);
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: var(--font-size-0);
+  line-height: 1.35;
+}
+
+hr {
+  background-color: var(--color-border);
+  border: none;
+  block-size: 1px;
+}
+
+.site-main ul,
+.site-main ol {
+  > * + * {
+    margin-block-start: var(--space-xs);
+  }
+}
