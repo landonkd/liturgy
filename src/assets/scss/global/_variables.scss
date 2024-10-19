@@ -36,44 +36,44 @@
 
   /* Font-size
   ---------------------------------- */
-  --base-font-size: 16px;
+  --base-font-size: 18px;
   /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1800,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-  --font-size--2: clamp(0.6944rem, 0.637rem + 0.2871vw, 0.96rem);
-  --font-size--1: clamp(0.8333rem, 0.7541rem + 0.3964vw, 1.2rem);
-  --font-size-0: clamp(1rem, 0.8919rem + 0.5405vw, 1.5rem);
-  --font-size-1: clamp(1.2rem, 1.0541rem + 0.7297vw, 1.875rem);
-  --font-size-2: clamp(1.44rem, 1.2446rem + 0.977vw, 2.3438rem);
-  --font-size-3: clamp(1.728rem, 1.4682rem + 1.2991vw, 2.9297rem);
-  --font-size-4: clamp(2.0736rem, 1.7301rem + 1.7173vw, 3.6621rem);
-  --font-size-5: clamp(2.4883rem, 2.0366rem + 2.2587vw, 4.5776rem);
+  --font-size--2: clamp(0.7813rem, 0.7426rem + 0.1932vw, 0.96rem);
+  --font-size--1: clamp(0.9375rem, 0.8807rem + 0.2838vw, 1.2rem);
+  --font-size-0: clamp(1.125rem, 1.0439rem + 0.4054vw, 1.5rem);
+  --font-size-1: clamp(1.35rem, 1.2365rem + 0.5676vw, 1.875rem);
+  --font-size-2: clamp(1.62rem, 1.4635rem + 0.7824vw, 2.3438rem);
+  --font-size-3: clamp(1.944rem, 1.7309rem + 1.0656vw, 2.9297rem);
+  --font-size-4: clamp(2.3328rem, 2.0454rem + 1.4371vw, 3.6621rem);
+  --font-size-5: clamp(2.7994rem, 2.4149rem + 1.9225vw, 4.5776rem);
 
 
   /* Margin and Padding
   ---------------------------------- */
   /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1800,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-  --space-3xs: clamp(0.25rem, 0.223rem + 0.1351vw, 0.375rem);
-  --space-2xs: clamp(0.5rem, 0.4459rem + 0.2703vw, 0.75rem);
-  --space-xs: clamp(0.75rem, 0.6689rem + 0.4054vw, 1.125rem);
-  --space-s: clamp(1rem, 0.8919rem + 0.5405vw, 1.5rem);
-  --space-m: clamp(1.5rem, 1.3378rem + 0.8108vw, 2.25rem);
-  --space-l: clamp(2rem, 1.7838rem + 1.0811vw, 3rem);
-  --space-xl: clamp(3rem, 2.6757rem + 1.6216vw, 4.5rem);
-  --space-2xl: clamp(4rem, 3.5676rem + 2.1622vw, 6rem);
-  --space-3xl: clamp(6rem, 5.3514rem + 3.2432vw, 9rem);
+  --space-3xs: clamp(0.3125rem, 0.299rem + 0.0676vw, 0.375rem);
+  --space-2xs: clamp(0.5625rem, 0.522rem + 0.2027vw, 0.75rem);
+  --space-xs: clamp(0.875rem, 0.8209rem + 0.2703vw, 1.125rem);
+  --space-s: clamp(1.125rem, 1.0439rem + 0.4054vw, 1.5rem);
+  --space-m: clamp(1.6875rem, 1.5659rem + 0.6081vw, 2.25rem);
+  --space-l: clamp(2.25rem, 2.0878rem + 0.8108vw, 3rem);
+  --space-xl: clamp(3.375rem, 3.1318rem + 1.2162vw, 4.5rem);
+  --space-2xl: clamp(4.5rem, 4.1757rem + 1.6216vw, 6rem);
+  --space-3xl: clamp(6.75rem, 6.2635rem + 2.4324vw, 9rem);
 
   /* One-up pairs */
-  --space-3xs-2xs: clamp(0.25rem, 0.1419rem + 0.5405vw, 0.75rem);
-  --space-2xs-xs: clamp(0.5rem, 0.3649rem + 0.6757vw, 1.125rem);
-  --space-xs-s: clamp(0.75rem, 0.5878rem + 0.8108vw, 1.5rem);
-  --space-s-m: clamp(1rem, 0.7297rem + 1.3514vw, 2.25rem);
-  --space-m-l: clamp(1.5rem, 1.1757rem + 1.6216vw, 3rem);
-  --space-l-xl: clamp(2rem, 1.4595rem + 2.7027vw, 4.5rem);
-  --space-xl-2xl: clamp(3rem, 2.3514rem + 3.2432vw, 6rem);
-  --space-2xl-3xl: clamp(4rem, 2.9189rem + 5.4054vw, 9rem);
+  --space-3xs-2xs: clamp(0.3125rem, 0.2179rem + 0.473vw, 0.75rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4409rem + 0.6081vw, 1.125rem);
+  --space-xs-s: clamp(0.875rem, 0.7399rem + 0.6757vw, 1.5rem);
+  --space-s-m: clamp(1.125rem, 0.8818rem + 1.2162vw, 2.25rem);
+  --space-m-l: clamp(1.6875rem, 1.4037rem + 1.4189vw, 3rem);
+  --space-l-xl: clamp(2.25rem, 1.7635rem + 2.4324vw, 4.5rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8074rem + 2.8378vw, 6rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.527rem + 4.8649vw, 9rem);
 
   /* Custom pairs */
-  --space-s-l: clamp(1rem, 0.5676rem + 2.1622vw, 3rem);
-  --space-s-2xl: clamp(1rem, -0.0811rem + 5.4054vw, 6rem);
+  --space-s-l: clamp(1.125rem, 0.7196rem + 2.027vw, 3rem);
+  --space-xs-2xl: clamp(0.875rem, -0.2331rem + 5.5405vw, 6rem);
 
   --space-cluster: var(--space-m);
   --space-gap: var(--space-m);
@@ -120,7 +120,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray: #F6F7F9;
-  --color-bg: #4b4734;
+  --color-bg: #44402f;
   --color-text: #DDD3BE;
   --color-accent: #2337ff;
 	--color-accent-d: #000d8a;

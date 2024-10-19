@@ -24,8 +24,7 @@ const { title, description, id, date } = Astro.props;
 			<article class="liturgy post">
 				<header class="post-header">
 					<h1 class="post-title">{title}</h1>
-					<div class="post-label">{id}</div>
-					<div class="post-label"><FormattedDate date={date}></FormattedDate></div>
+					<div class="post-meta">{id}, <FormattedDate date={date}></FormattedDate></div>
 				</header>
 				<div class="prose stack">
 					<slot />
@@ -45,12 +44,13 @@ const { title, description, id, date } = Astro.props;
 		margin-block-start: var(--space-2xs);
 	}
 
-	.post-label {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-0);
-	}
-
 	.post-header {
 		padding-block-end: var(--space-l);
+	}
+
+	.post-meta {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-0);
+		margin-block-start: var(--space-2xs);
 	}
 </style>
