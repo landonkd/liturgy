@@ -1,8 +1,8 @@
-// Base
-@import 'base/_reset.scss';
-@import 'base/breakpoints';
-@import 'base/variables';
-@import 'base/elements';
+// Global
+@import 'global/_reset.scss';
+@import 'global/breakpoints';
+@import 'global/variables';
+@import 'global/elements';
 
 // Composition
 @import 'composition/site-layout';
@@ -11,6 +11,9 @@
 @import 'composition/stack';
 // @import 'composition/icon';
 // @import 'composition/reel';
+
+// Block
+@import 'block/prose';
 
 // Utilities
 @import 'utility/animations';
