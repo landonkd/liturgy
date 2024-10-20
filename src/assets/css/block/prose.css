@@ -1,1 +1,1 @@
-.prose{margin-block-start:var(--space-m)}.prose h2{font-size:var(--font-size-1)}
+.prose{margin-block-start:var(--space-m);overflow:hidden}.prose h2{inline-size:fit-content;font-size:var(--font-size-1);position:relative;overflow:visible}.prose h2::after{border-block-end:1px dotted var(--color-white);content:"";flex-grow:1;margin-block-end:.25em;display:block;bottom:-0.1rem;position:absolute;inline-size:100vw;z-index:-1;left:calc(100% + var(--space-3xs))}.prose #readings+ul{list-style:none;padding:0}

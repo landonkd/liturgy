@@ -9,9 +9,9 @@ import HeaderLink from './HeaderLink.astro';
 	</h2>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
-			<!-- <HeaderLink href="/daily">Daily</HeaderLink> -->
-			<HeaderLink href="/weekly">Weekly</HeaderLink>
-			<!-- <HeaderLink href="/prayer">Prayer</HeaderLink> -->
+			<!-- <li><HeaderLink href="/daily">Daily</HeaderLink></li> -->
+			<li><HeaderLink href="/weekly">Weekly</HeaderLink></li>
+			<!-- <li><HeaderLink href="/prayer">Prayer</HeaderLink></li> -->
 		</ul>
 	</nav>
 </header>
@@ -26,9 +26,14 @@ import HeaderLink from './HeaderLink.astro';
 		justify-content: space-between;
 	}
 
-	.site-title a {
-		font-size: var(--font-size-0);
-		text-decoration: none;
+	.site-title {
+		display: flex;
+		line-height: 1;
+
+		a {
+			font-size: var(--font-size--1);
+			text-decoration: none;
+		}
 	}
 
 	.site-nav {
@@ -36,9 +41,10 @@ import HeaderLink from './HeaderLink.astro';
 	}
 
 	.site-nav a {
-		padding: var(--space-2xs) 0;
-		color: var(--color-text);
 		/* border-bottom: 4px solid transparent; */
+		color: var(--color-text);
+		line-height: 1;
+		padding: var(--space-2xs) 0;
 		text-decoration: none;
 	}
 
@@ -48,6 +54,7 @@ import HeaderLink from './HeaderLink.astro';
 
 	.site-nav__list {
 		gap: var(--space-s);
+		list-style: none;
 		margin: 0;
 		padding: 0;
 	}

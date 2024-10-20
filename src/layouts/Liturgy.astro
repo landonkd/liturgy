@@ -10,7 +10,7 @@ type Props = CollectionEntry<'liturgy'>['data'];
 const { title, description, id, date } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-color-theme="dark">
 
 	<head>
 		<BaseHead title={title} description={description} />
@@ -23,8 +23,8 @@ const { title, description, id, date } = Astro.props;
 
 			<article class="liturgy post">
 				<header class="post-header">
+					<div class="post-meta">░ {id} <FormattedDate date={date}></FormattedDate></div>
 					<h1 class="post-title">{title}</h1>
-					<div class="post-meta">{id}, <FormattedDate date={date}></FormattedDate></div>
 				</header>
 				<div class="prose stack">
 					<slot />
@@ -41,7 +41,9 @@ const { title, description, id, date } = Astro.props;
 
 <style>
 	.post-title {
+		font-size: var(--font-size-2);
 		margin-block-start: var(--space-2xs);
+		text-wrap: balance;
 	}
 
 	.post-header {
@@ -50,7 +52,11 @@ const { title, description, id, date } = Astro.props;
 
 	.post-meta {
 		font-family: var(--font-mono);
-		font-size: var(--font-size-0);
+		font-size: var(--font-size--1);
 		margin-block-start: var(--space-2xs);
+
+		+ .post-meta {
+			margin-block-start: 0;
+		}
 	}
 </style>

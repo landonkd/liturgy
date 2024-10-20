@@ -15,7 +15,7 @@ const posts = (await getCollection('liturgy')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-color-theme="dark">
 	
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -33,7 +33,7 @@ const posts = (await getCollection('liturgy')).sort(
 							<a class="post-item__link cluster" href={`/weekly/${post.slug}/`}>
 								<div class="post-item__meta">{post.data.id}</div>
 								<div class="post-item__meta"><FormattedDate date={post.data.date}></FormattedDate></div>
-								<h2 class="post-item__title">{post.data.title}</h2>
+								<h2 class="post-item__title min-inline-size:0"><div class="overflow-ellipsis">{post.data.title}</div></h2>
 							</a>
 						</li>
 					))
@@ -88,15 +88,10 @@ const posts = (await getCollection('liturgy')).sort(
 	.post-item__meta {
 		font-family: var(--font-mono);
 		font-size: var(--font-size--1);
+		line-height: 1.1;
 	}
 
 	.post-item__title {
 		font-size: var(--font-size--1);
-	}
-
-	@media (min-width: 600px) {
-		.post-item__title {
-			font-size: var(--font-size-0);
-		}
 	}
 </style>
