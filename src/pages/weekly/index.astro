@@ -12,6 +12,9 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('liturgy')).sort(
 	(a, b) => a.data.id.localeCompare(b.data.id)
 );
+
+
+// †
 ---
 
 <!doctype html>
@@ -29,11 +32,18 @@ const posts = (await getCollection('liturgy')).sort(
 			<ol class="post-list stack">
 				{
 					posts.map((post) => (
-						<li class="post-item">
+						<li class="post-item" data-date={post.data.date.setFullYear(2021)} data-upcoming="false">
 							<a class="post-item__link cluster" href={`/weekly/${post.slug}/`}>
-								<div class="post-item__meta">{post.data.id}</div>
-								<div class="post-item__meta"><FormattedDate date={post.data.date}></FormattedDate></div>
-								<h2 class="post-item__title min-inline-size:0"><div class="overflow-ellipsis">{post.data.title}</div></h2>
+								<div class="post-item__meta">
+									<span class="marker">►</span>
+									{post.data.id}
+								</div>
+								<div class="post-item__meta">
+									<FormattedDate date={post.data.date}></FormattedDate>
+								</div>
+								<h2 class="post-item__title min-inline-size:0">
+									<div class="overflow-ellipsis">{post.data.title}</div>
+								</h2>
 							</a>
 						</li>
 					))
@@ -46,6 +56,19 @@ const posts = (await getCollection('liturgy')).sort(
 	</body>
 
 </html>
+
+<script is:inline>
+let today = new Date();
+today.setFullYear(2021);
+today.setHours(0, 0, 0, 0);
+
+let posts = document.querySelectorAll('[data-date]');
+posts.forEach((post) => {
+	if (today <= post.dataset.date) {
+		post.dataset.upcoming = true;
+	}
+});
+</script>
 
 <style>
 	.site-main {
@@ -64,7 +87,44 @@ const posts = (await getCollection('liturgy')).sort(
 		margin-block: 0;
 		
 		* {
+			color: inherit;
 			margin-block: 0;
+		}
+
+		.marker {
+			color: var(--color-accent);
+			display: none;
+		}
+	}
+
+	[data-upcoming="true"] {
+		color: var(--color-accent);
+
+		.marker {
+			display: inline;
+		}
+
+		.post-item__link:hover,
+		.post-item__link:focus-visible {
+			background-color: var(--color-accent);
+			color: var(--color-bg);
+
+			.marker {
+				color: var(--color-bg);
+			}
+		}
+
+		+ [data-upcoming="true"] {
+			color: var(--color-text);
+
+			.marker {
+				display: none;
+			}
+
+			.post-item__link:hover,
+			.post-item__link:focus-visible {
+				background-color: var(--color-text);
+			}
 		}
 	}
 
