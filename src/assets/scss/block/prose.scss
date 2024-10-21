@@ -2,6 +2,10 @@
   margin-block-start: var(--space-m);
   overflow: hidden;
 
+  @media (width < 450px) {
+    line-height: 1.67;
+  }
+
   h2 {
     inline-size: fit-content;
     font-size: var(--font-size-1);
@@ -25,6 +29,7 @@
   #readings {
     + ul {
       list-style: none;
+      line-height: 1.444;
       padding: 0;
     }
   }
