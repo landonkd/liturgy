@@ -1,17 +1,15 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-// import { SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 ---
 
 <header class="site-header">
 	<h2 class="site-title">
-		<a href="/">Liturgy</a>
+		<a href="/">{SITE_TITLE}</a>
 	</h2>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
-			<!-- <li><HeaderLink href="/daily">Daily</HeaderLink></li> -->
-			<li><HeaderLink href="/weekly">Weekly</HeaderLink></li>
-			<!-- <li><HeaderLink href="/prayer">Prayer</HeaderLink></li> -->
+			<li><HeaderLink href="/about">About</HeaderLink></li>
 		</ul>
 	</nav>
 </header>
@@ -24,6 +22,7 @@ import HeaderLink from './HeaderLink.astro';
 		font-family: var(--font-sans);
 		font-size: var(--font-size--1);
 		justify-content: space-between;
+		padding-block: var(--space-2xs);
 	}
 
 	.site-title {
@@ -32,24 +31,17 @@ import HeaderLink from './HeaderLink.astro';
 
 		a {
 			font-size: var(--font-size--1);
-			text-decoration: none;
+			text-decoration-color: transparent;
+
+			&:hover,
+			&:focus-visible {
+				text-decoration-color: var(--color-text);
+			}
 		}
 	}
 
 	.site-nav {
 		margin-inline: 0;
-	}
-
-	.site-nav a {
-		/* border-bottom: 4px solid transparent; */
-		color: var(--color-text);
-		line-height: 1;
-		padding: var(--space-2xs) 0;
-		text-decoration: none;
-	}
-
-	.site-nav a.active {
-		/* border-bottom-color: var(--color-accent); */
 	}
 
 	.site-nav__list {

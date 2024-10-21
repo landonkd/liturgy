@@ -2,6 +2,7 @@
 // Import the main.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../assets/css/main.css';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_OG } from '../consts';
 
 interface Props {
 	title: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = SITE_OG } = Astro.props;
 ---
 
 <!-- Global Metadata -->

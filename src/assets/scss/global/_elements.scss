@@ -40,8 +40,9 @@ a {
   color: var(--color-text);
   text-decoration-color: var(--color-text);
   text-decoration-style: solid;
-  text-decoration-thickness: 0.1ex;
-  text-underline-offset: 0.35ex;
+  // text-decoration-thickness: 0.1ex;
+  text-decoration-thickness: 0.075rem;
+  text-underline-offset: 0.4ex;
   transition: color 0.1s, text-decoration-color 0.1s;
 
   &:not(.btn) {
@@ -64,7 +65,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-3);
   line-height: 1.15;
 }
 

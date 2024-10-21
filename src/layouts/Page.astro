@@ -1,0 +1,28 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-color-theme="dark">
+
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body class="site-layout">
+
+		<SiteHeader title={title} />
+
+		<main class="site-main">
+			<slot />
+		</main>
+
+		<SiteFooter />
+
+	</body>
+
+</html>

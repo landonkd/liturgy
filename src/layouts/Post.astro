@@ -21,7 +21,7 @@ const { title, description, id, date } = Astro.props;
 
 		<main class="site-main">
 
-			<article class="liturgy post">
+			<article class="post">
 				<header class="post-header">
 					<div class="post-meta">░ {id} <FormattedDate date={date}></FormattedDate></div>
 					<h1 class="post-title">{title}</h1>
@@ -41,7 +41,7 @@ const { title, description, id, date } = Astro.props;
 
 <style>
 	.post-title {
-		font-size: var(--font-size-2);
+		font-size: var(--font-size-3);
 		margin-block-start: var(--space-2xs);
 		text-wrap: balance;
 	}
