@@ -35,7 +35,6 @@ const posts = (await getCollection('liturgy')).sort(
 						<li class="post-item" data-date={post.data.date.setFullYear(2021)} data-upcoming="false">
 							<a class="post-item__link cluster" href={`/weekly/${post.slug}/`}>
 								<div class="post-item__meta">
-									<span class="marker">►</span>
 									{post.data.id}
 								</div>
 								<div class="post-item__meta">
@@ -78,7 +77,6 @@ posts.forEach((post) => {
 	.post-list {
 		list-style: none;
 		margin: 0;
-		overflow: scroll;
 		padding: 0;
 	}
 
@@ -99,31 +97,32 @@ posts.forEach((post) => {
 
 	[data-upcoming="true"] {
 		color: var(--color-accent);
+		position: relative;
 
-		.marker {
-			display: inline;
+		&::before {
+			align-items: center;
+			block-size: 100%;
+			color: var(--color-accent);
+			content: '►';
+			display: flex;
+			font-size: var(--font-size--1);
+			font-family: var(--font-mono);
+			position: absolute;
+			left: -1.25ch;
 		}
 
-		.post-item__link:hover,
-		.post-item__link:focus-visible {
-			background-color: var(--color-accent);
-			color: var(--color-bg);
-
-			.marker {
-				color: var(--color-bg);
+		&:hover,
+		&:focus-within {
+			* {
+				color: var(--color-accent);
 			}
 		}
 
 		+ [data-upcoming="true"] {
 			color: var(--color-text);
 
-			.marker {
+			&::before {
 				display: none;
-			}
-
-			.post-item__link:hover,
-			.post-item__link:focus-visible {
-				background-color: var(--color-text);
 			}
 		}
 	}
