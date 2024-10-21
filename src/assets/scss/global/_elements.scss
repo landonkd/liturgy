@@ -47,7 +47,7 @@ a {
 
   &:not(.btn) {
     &:hover, &:focus {
-      color: var(--color-text);
+      color: var(--color-accent);
       text-decoration-color: var(--color-accent);
     }
   }

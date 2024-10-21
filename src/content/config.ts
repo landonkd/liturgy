@@ -6,7 +6,7 @@ const liturgy = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		id: z.string(),
+		week: z.string(),
 		date: z.coerce.date(), // Transform string to Date object
 		// heroImage: z.string().optional(),
 	}),

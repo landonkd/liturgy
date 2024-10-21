@@ -29,6 +29,7 @@
   ---------------------------------- */
   --base-font-size: 18px;
   /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1800,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --font-size--3: clamp(0.651rem, 0.6258rem + 0.1264vw, 0.768rem);
   --font-size--2: clamp(0.7813rem, 0.7426rem + 0.1932vw, 0.96rem);
   --font-size--1: clamp(0.9375rem, 0.8807rem + 0.2838vw, 1.2rem);
   --font-size-0: clamp(1.125rem, 1.0439rem + 0.4054vw, 1.5rem);
@@ -111,6 +112,8 @@
 
   /* Colors
   ---------------------------------- */
+  --color-blue: hsl(198, 57%, 50%);
+  --color-bronze: hsl(22, 28%, 50%);
   --color-white: #ffffff;
   --color-white-25: hsl(0 0 25%);
   --color-black: #000000;
@@ -118,17 +121,11 @@
   --color-bg: #F4F0EA;
   --color-text: #1A1A1A;
   --color-border: var(--color-text);
-  --color-accent: #A3765C;
-  // --color-red: #DD3416;
-  // --color-orange: #FF690C;
-  // --color-green: #01A77F;
-  // --color-green-2: #27694A;
-  // --color-violet: #2337ff;
+  --color-accent:	var(--color-bronze);
 
   &[data-color-theme="dark"] {
     --color-bg: #1A1A1A;
     --color-text: #FFFFFF;
-    --color-border: var(--color-white-25);
   }
 
 

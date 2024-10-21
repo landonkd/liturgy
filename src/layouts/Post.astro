@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'liturgy'>['data'];
 
-const { title, description, id, date } = Astro.props;
+const { title, description, week, date } = Astro.props;
 ---
 
 <html lang="en" data-color-theme="dark">
@@ -23,7 +23,7 @@ const { title, description, id, date } = Astro.props;
 
 			<article class="post">
 				<header class="post-header">
-					<div class="post-meta">░ {id} <FormattedDate date={date}></FormattedDate></div>
+					<div class="post-meta"><span class="barcode">░</span> {week} <FormattedDate date={date}></FormattedDate></div>
 					<h1 class="post-title">{title}</h1>
 				</header>
 				<div class="prose stack">
