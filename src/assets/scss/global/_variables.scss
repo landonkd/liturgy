@@ -112,8 +112,8 @@
 
   /* Colors
   ---------------------------------- */
-  --color-blue: hsl(198, 57%, 50%);
-  --color-bronze: hsl(22, 28%, 50%);
+  --color-blue: #297494; // hsl(198, 57%, 37%);
+  --color-bronze: #89634d; // hsl(22, 28%, 42%)
   --color-white: #ffffff;
   --color-white-25: hsl(0 0 25%);
   --color-black: #000000;
@@ -124,6 +124,8 @@
   --color-accent:	var(--color-bronze);
 
   &[data-color-theme="dark"] {
+    --color-blue: #379DC8; // hsl(198, 57%, 50%);
+    --color-bronze: #a5795f; // hsl(22, 28%, 51%)
     --color-bg: #1A1A1A;
     --color-text: #FFFFFF;
   }
