@@ -1,5 +1,6 @@
 ---
-import HeaderLink from './HeaderLink.astro';
+// import HeaderLink from './HeaderLink.astro';
+// <li><HeaderLink href="/about">About</HeaderLink></li>
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -9,7 +10,6 @@ import { SITE_TITLE } from '../consts';
 	</h2>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
-			<!-- <li><HeaderLink href="/about">About</HeaderLink></li> -->
 			<li>
 				<button aria-label="Toggle color scheme" class="btn icon-btn" data-action="user-theme">
 					<svg aria-hidden="true" class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -48,7 +48,7 @@ import { SITE_TITLE } from '../consts';
 		font-family: var(--font-sans);
 		font-size: var(--font-size--1);
 		justify-content: space-between;
-		padding-block: var(--space-2xs);
+		padding-block: var(--site-gutter);
 	}
 
 	.site-title {
