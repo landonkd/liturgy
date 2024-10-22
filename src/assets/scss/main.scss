@@ -9,11 +9,12 @@
 @import 'composition/cluster';
 @import 'composition/grid';
 @import 'composition/stack';
-// @import 'composition/icon';
+@import 'composition/icon';
 // @import 'composition/reel';
 
 // Block
 @import 'block/prose';
+@import 'block/buttons';
 
 // Utilities
 @import 'utility/animations';

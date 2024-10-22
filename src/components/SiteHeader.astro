@@ -9,10 +9,36 @@ import { SITE_TITLE } from '../consts';
 	</h2>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
-			<li><HeaderLink href="/about">About</HeaderLink></li>
+			<!-- <li><HeaderLink href="/about">About</HeaderLink></li> -->
+			<li>
+				<button aria-label="Toggle color scheme" class="btn icon-btn" data-action="user-theme">
+					<svg aria-hidden="true" class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<circle cx="10" cy="10" r="10" fill="currentColor"></circle>
+						<path d="M2 10C2 14.4183 5.58172 18 10 18V2C5.58172 2 2 5.58172 2 10Z" fill="currentColor"></path>
+					</svg>
+				</button>
+			</li>
 		</ul>
 	</nav>
 </header>
+
+<script is:inline>
+	/**
+   * Set the user theme
+   */
+	function setUserTheme() {
+    const currentThemeValue = document.documentElement.getAttribute('data-user-theme');
+    const newThemeValue = currentThemeValue === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-user-theme', newThemeValue);
+    localStorage.setItem('user-color-scheme', newThemeValue);
+  }
+
+	let themeToggler = document.querySelector('[data-action="user-theme"]');
+	themeToggler.addEventListener('click', () => {
+		console.log('hi');
+		setUserTheme();
+  });
+</script>
 
 <style>
 	.site-header {

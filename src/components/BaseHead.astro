@@ -51,3 +51,33 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = SITE_OG } = 
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Color Switcher -->
+<script>
+	/**
+	 * A global function that the theme toggle can use to apply the current theme.
+	 * @param {string | undefined} override - The setting that needs to be applied or undefined
+	 * @returns {string} - The applied theme setting
+	 */
+	window.applyThemeSetting = function (override) {
+		const getSystemPreference = () => {
+			// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			//   return 'dark';
+			// }
+			// return 'light';
+			return 'dark'; // Default to dark mode
+		};
+
+		const currentSetting = override || localStorage.getItem('user-color-scheme') || getSystemPreference();
+		const currentThemeValue = document.documentElement.getAttribute('data-user-theme');
+
+		if (currentSetting && currentSetting !== currentThemeValue) {
+			document.documentElement.setAttribute('data-user-theme', currentSetting);
+			localStorage.setItem('user-color-scheme', currentSetting);
+		}
+
+		return currentSetting;
+	};
+
+	window.applyThemeSetting();
+</script>
