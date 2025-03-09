@@ -30,5 +30,9 @@ const { title, description } = Astro.props;
 <style>
 	.site-main {
 		max-inline-size: var(--measure);
+
+		@media (min-width: 500px) {
+			max-inline-size: min(var(--measure), 85vw);
+		}
 	}
 </style>
