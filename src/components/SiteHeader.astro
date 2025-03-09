@@ -5,9 +5,9 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header class="site-header">
-	<h2 class="site-title">
+	<div class="site-title">
 		<a href="/">{SITE_TITLE}</a>
-	</h2>
+	</div>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
 			<li>
@@ -53,8 +53,10 @@ import { SITE_TITLE } from '../consts';
 
 	.site-title {
 		display: flex;
+		font-family: var(--font-display);
+		font-size: var(--font-size--2);
+		letter-spacing: var(--letter-spacing);
 		line-height: 1;
-		font-size: var(--font-size--1);
 	}
 
 	.site-title a {

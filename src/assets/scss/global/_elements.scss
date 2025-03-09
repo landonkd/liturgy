@@ -5,13 +5,14 @@ html {
   background-color: var(--color-bg);
   font-size: var(--base-font-size);
   scroll-behavior: smooth;
-  scroll-padding-block-start: var(--pad-lg);
+  scroll-padding-block-start: var(--space-m);
 }
 
 body {
   color: var(--color-text);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--font-size-0);
+  font-weight: 500;
   line-height: 1.525;
 	overflow-wrap: break-word;
   position: relative;
@@ -42,7 +43,7 @@ a {
   text-decoration-style: solid;
   // text-decoration-thickness: 0.1ex;
   text-decoration-thickness: 0.075rem;
-  text-underline-offset: 0.4ex;
+  text-underline-offset: 0.5ex;
   transition: color 0.1s, text-decoration-color 0.1s;
 
   &:not(.btn) {
@@ -92,6 +93,12 @@ hr {
 
 .site-main ul,
 .site-main ol {
+  text-wrap: pretty;
+
+  @media (width < 600px) {
+    padding-inline-start: 2ch;
+  }
+  
   > * + * {
     margin-block-start: var(--space-2xs);
   }

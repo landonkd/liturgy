@@ -1,5 +1,5 @@
 ---
-import Page from '../layouts/Page.astro';
+import Archive from '../layouts/Archive.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getCollection } from 'astro:content';
 
@@ -24,7 +24,7 @@ const part2 = (await getCollection('liturgy', ({ id }) => {
 );
 ---
 
-<Page class="stack">
+<Archive class="stack">
 	<h2 class="section-heading">Part 1: A Time of Planting and Harvest</h2>
 	<ol class="post-list stack">
 		{
@@ -69,7 +69,7 @@ const part2 = (await getCollection('liturgy', ({ id }) => {
 
 	<!-- <h2 class="section-heading">Part 3: Reshaped by Hope and New Life</h2> -->
 	<!-- <h2 class="section-heading">Part 4: Children of the Resurrection</h2> -->
-</Page>
+</Archive>
 
 <script is:inline>
 	let today = new Date();
@@ -94,8 +94,12 @@ const part2 = (await getCollection('liturgy', ({ id }) => {
 		font-family: var(--font-mono);
 		font-size: var(--font-size--3);
 		margin-block-end: var(--space-2xs);
-		margin-block-start: var(--space-m);
+		margin-block-start: var(--space-l);
 		text-transform: uppercase;
+
+		@media (min-width: 600px) {
+			font-size: var(--font-size--2);
+		}
 
 		&:first-child {
 			margin-block-start: 0;
@@ -181,9 +185,17 @@ const part2 = (await getCollection('liturgy', ({ id }) => {
 		font-family: var(--font-mono);
 		font-size: var(--font-size--1);
 		line-height: 1;
+
+		@media (min-width: 600px) {
+			font-size: var(--font-size-0);
+		}
 	}
 
 	.post-item__title {
 		font-size: var(--font-size--1);
+
+		@media (min-width: 600px) {
+			font-size: var(--font-size-0);
+		}
 	}
 </style>

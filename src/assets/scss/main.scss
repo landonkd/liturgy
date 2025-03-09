@@ -1,21 +1,21 @@
 // Global
-@import 'global/_reset.scss';
-@import 'global/breakpoints';
-@import 'global/variables';
-@import 'global/elements';
+@use 'global/_reset.scss';
+@use 'global/breakpoints';
+@use 'global/variables';
+@use 'global/elements';
 
 // Composition
-@import 'composition/site-layout';
-@import 'composition/cluster';
-@import 'composition/grid';
-@import 'composition/stack';
-@import 'composition/icon';
-// @import 'composition/reel';
+@use 'composition/site-layout';
+@use 'composition/cluster';
+@use 'composition/grid';
+@use 'composition/stack';
+@use 'composition/icon';
+// @use 'composition/reel';
 
 // Block
-@import 'block/prose';
-@import 'block/buttons';
+@use 'block/prose';
+@use 'block/buttons';
 
 // Utilities
-@import 'utility/animations';
-@import 'utility/utilities';
+@use 'utility/animations';
+@use 'utility/utilities';
