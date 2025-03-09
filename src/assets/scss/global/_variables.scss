@@ -133,7 +133,7 @@
   --color-bg: hsl(36, 31%, 94%);
   --color-bg-hover: hsl(36, 31%, 87%);
   --color-text: hsl(0, 0%, 10%);
-  --color-border: var(--color-text);
+  --color-border: hsl(36, 31%, 63%);
 
   --color-blue: hsl(198, 57%, 37%);
   --color-bronze: hsl(22, 28%, 42%);
@@ -143,7 +143,7 @@
     --color-bg: hsl(0, 0%, 10%);
     --color-bg-hover: hsl(0 0% 17%);
     --color-text: hsl(0, 0%, 100%);
-    --color-border: var(--color-bg-hover);
+    --color-border: hsl(0 0% 31%);
 
     --color-blue: hsl(198, 57%, 50%);
     --color-bronze: hsl(22, 28%, 51%);
