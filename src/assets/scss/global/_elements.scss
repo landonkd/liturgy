@@ -12,16 +12,16 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--font-size-0);
-  font-weight: normal;
+  font-weight: 500;
   line-height: 1.6;
 	overflow-wrap: break-word;
   position: relative;
   -webkit-font-smoothing: antialiased;
   word-wrap: break-word;
 
-  @media (min-width: 500px) {
-    line-height: 1.5;
-  }
+  // @media (min-width: 500px) {
+  //   line-height: 1.5;
+  // }
 
   &.site-overlay-active {
     block-size: 100%;

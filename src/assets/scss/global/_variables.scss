@@ -8,13 +8,13 @@
 	font-display: swap;
 }
 
-// @font-face {
-// 	font-family: 'Neue Montreal';
-// 	src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
-// 	font-weight: 500;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
 
 // @font-face {
 // 	font-family: 'Neue Montreal';
@@ -37,7 +37,7 @@
   /* Font-family
   ---------------------------------- */
   --font-sans-base: 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, system-ui, sans-serif;
-  --font-sans: var(--font-sans-base);
+  --font-sans: 'Neue Montreal', var(--font-sans-base);
   --font-sans-display: 'Neue Montreal', var(--font-sans-base);
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', 'Georgia', P052, serif;
   --font-serif-display: 'Castoro Titling', var(--font-serif);
@@ -98,7 +98,7 @@
 
   /* Other Measures
   ---------------------------------- */
-  --measure: 60ch;
+  --measure: 54ch;
   --radius: 1.125rem;
   --site-gutter: var(--space-s);
   --letter-spacing: 0.25rem;
