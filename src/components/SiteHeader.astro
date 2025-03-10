@@ -5,9 +5,9 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header class="site-header">
-	<div class="site-title">
-		<a href="/">{SITE_TITLE}</a>
-	</div>
+	<a class="site-title" href="/">
+		{SITE_TITLE}
+	</a>
 	<nav class="site-nav">
 		<ul class="site-nav__list cluster">
 			<li>
@@ -35,7 +35,6 @@ import { SITE_TITLE } from '../consts';
 
 	let themeToggler = document.querySelector('[data-action="user-theme"]');
 	themeToggler.addEventListener('click', () => {
-		console.log('hi');
 		setUserTheme();
   });
 </script>
@@ -52,15 +51,24 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	.site-title {
+		align-items: center;
+		color: var(--color-text);
 		display: flex;
 		font-family: var(--font-serif-display);
 		font-size: var(--font-size--2);
 		letter-spacing: var(--letter-spacing);
 		line-height: 1;
-	}
-
-	.site-title a {
+		text-box-trim: trim-both;
 		text-decoration: none;
+
+		@media (min-width: 600px) {
+			font-size: var(--font-size--1);
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-accent);
+		}
 	}
 
 	.site-nav {

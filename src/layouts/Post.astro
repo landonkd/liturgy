@@ -25,7 +25,7 @@ const { title, description, week, date } = Astro.props;
 				<header class="post-header">
 					<h1 class="post-title">{title}</h1>
 					<div class="post-meta">
-						{week} <FormattedDate date={date}></FormattedDate>
+						<span class="sr-only">Week and Start Date:</span>{week}<span class="spacer"></span><FormattedDate date={date}></FormattedDate>
 					</div>
 				</header>
 				<div class="prose stack">
@@ -42,6 +42,11 @@ const { title, description, week, date } = Astro.props;
 </html>
 
 <style>
+	.spacer {
+		display: inline-block;
+		inline-size: var(--space-xs);
+	}
+
 	.post-header {
 		max-inline-size: 80ch;
 		margin-inline: auto;	
@@ -63,11 +68,15 @@ const { title, description, week, date } = Astro.props;
 		@media (min-width: 750px) {
 			font-size: var(--font-size-5);
 		}
+
+		@media (min-width: 1200px) {
+			font-size: var(--font-size-6);
+		}
 	}
 
 	.post-meta {
 		font-family: var(--font-mono);
-		font-size: var(--font-size--1);
+		font-size: var(--font-size-meta);
 		font-weight: 400;
 		margin-block-start: var(--space-2xs);
 

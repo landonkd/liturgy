@@ -19,10 +19,6 @@ body {
   -webkit-font-smoothing: antialiased;
   word-wrap: break-word;
 
-  // @media (min-width: 500px) {
-  //   line-height: 1.5;
-  // }
-
   &.site-overlay-active {
     block-size: 100%;
     inline-size: 100%;
@@ -45,8 +41,7 @@ a {
   color: var(--color-text);
   text-decoration-color: var(--color-text);
   text-decoration-style: solid;
-  // text-decoration-thickness: 0.1ex;
-  text-decoration-thickness: 0.075rem;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 0.5ex;
   transition: color 0.1s, text-decoration-color 0.1s;
 

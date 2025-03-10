@@ -65,8 +65,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = SITE_OG } = 
 			// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			//   return 'dark';
 			// }
-			// return 'light';
-			return 'dark'; // Default to dark mode
+			return 'light'; // Default to light mode
 		};
 
 		const currentSetting = override || localStorage.getItem('user-color-scheme') || getSystemPreference();
