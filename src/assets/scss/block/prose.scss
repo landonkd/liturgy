@@ -32,6 +32,10 @@
     }
   }
 
+  p:first-of-type:first-line {
+    font-family: var(--font-serif-display);
+  }
+
   blockquote {
     border-left: 1.5px solid var(--color-text);
     margin-inline: 0;
