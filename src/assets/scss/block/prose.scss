@@ -32,7 +32,7 @@
     }
   }
 
-  p:first-of-type:first-line {
+  > p:first-of-type:first-line {
     font-family: var(--font-serif-display);
   }
 
