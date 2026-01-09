@@ -52,11 +52,7 @@ const { title, description, week, date, readings } = Astro.props;
                 </div>
               )
             }
-            <div
-              class="post-meta"
-              data-date={date.setFullYear(2024)}
-              data-active="false"
-            >
+            <div class="post-meta" data-date={date} data-active="false">
               <span class="sr-only">Week and Start Date:</span>
               {week}<span class="spacer"></span>
               <FormattedDate date={date} />
@@ -85,11 +81,15 @@ const { title, description, week, date, readings } = Astro.props;
     today.setHours(0, 0, 0, 0);
 
     // Do the date comparison
-    const postDate = new Date(postDateStr);
+    let postDate = new Date(postDateStr);
+    postDate.setFullYear(2024);
     const daysDifference = Math.ceil(
       (postDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
     );
-    const isWithinSevenDays = daysDifference >= -7 && daysDifference <= 7;
+    const isWithinSevenDays = daysDifference >= -7 && daysDifference <= 0;
+    console.log(postDate.getTime());
+    console.log(today.getTime());
+    console.log(daysDifference);
 
     // Add class or data attribute to body for CSS targeting
     if (isWithinSevenDays) {

@@ -29,11 +29,7 @@ const part2 = (
   <ol class="post-list stack">
     {
       part1.map((post) => (
-        <li
-          class="post-item"
-          data-date={post.data.date.setFullYear(2024)}
-          data-upcoming="false"
-        >
+        <li class="post-item" data-date={post.data.date} data-upcoming="false">
           <a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
             <div class="post-item__meta">{post.data.week}</div>
             <div class="post-item__meta">
@@ -52,11 +48,7 @@ const part2 = (
   <ol class="post-list stack">
     {
       part2.map((post) => (
-        <li
-          class="post-item"
-          data-date={post.data.date.setFullYear(2024)}
-          data-upcoming="false"
-        >
+        <li class="post-item" data-date={post.data.date} data-upcoming="false">
           <a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
             <div class="post-item__meta">{post.data.week}</div>
             <div class="post-item__meta">
@@ -83,7 +75,9 @@ const part2 = (
 
   let posts = document.querySelectorAll("[data-date]");
   posts.forEach((post, i) => {
-    if (today < post.dataset.date) {
+    let postDate = new Date(post.dataset.date);
+    postDate.setFullYear(2024);
+    if (today < postDate) {
       post.dataset.upcoming = true;
     }
   });
