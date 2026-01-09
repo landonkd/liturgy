@@ -1,7 +1,7 @@
 ---
-import Archive from '../layouts/Archive.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import { getCollection } from 'astro:content';
+import Archive from "../layouts/Archive.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
 
 // const posts = (await getCollection('liturgy')).sort(
 // 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -11,184 +11,86 @@ import { getCollection } from 'astro:content';
 // 	(a, b) => a.data.week.localeCompare(b.data.week)
 // );
 
-const part1 = (await getCollection('liturgy', ({ id }) => {
-		return id.startsWith('part-1/');
-	})).sort(
-		(a, b) => a.data.week.localeCompare(b.data.week)
-	);
+const part1 = (
+  await getCollection("liturgy", ({ id }) => {
+    return id.startsWith("part-1/");
+  })
+).sort((a, b) => a.data.week.localeCompare(b.data.week));
 
-const part2 = (await getCollection('liturgy', ({ id }) => {
-	return id.startsWith('part-2/');
-})).sort(
-	(a, b) => a.data.week.localeCompare(b.data.week)
-);
+const part2 = (
+  await getCollection("liturgy", ({ id }) => {
+    return id.startsWith("part-2/");
+  })
+).sort((a, b) => a.data.week.localeCompare(b.data.week));
 ---
 
 <Archive class="stack">
-	<h2 class="section-heading">Part 1: A Time of Planting and Harvest</h2>
-	<ol class="post-list stack">
-		{
-			part1.map((post) => (
-				<li class="post-item" data-date={post.data.date.setFullYear(2024)} data-upcoming="false">
-					<a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
-						<div class="post-item__meta">
-							{post.data.week}
-						</div>
-						<div class="post-item__meta">
-							<FormattedDate date={post.data.date}></FormattedDate>
-						</div>
-						<h2 class="post-item__title min-inline-size:0">
-							<div class="overflow-ellipsis">{post.data.title}</div>
-						</h2>
-					</a>
-				</li>
-			))
-		}
-	</ol>
+  <h2 class="section-heading">Part 1: A Time of Planting and Harvest</h2>
+  <ol class="post-list stack">
+    {
+      part1.map((post) => (
+        <li
+          class="post-item"
+          data-date={post.data.date.setFullYear(2024)}
+          data-upcoming="false"
+        >
+          <a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
+            <div class="post-item__meta">{post.data.week}</div>
+            <div class="post-item__meta">
+              <FormattedDate date={post.data.date} />
+            </div>
+            <h2 class="post-item__title min-inline-size:0">
+              <div class="overflow-ellipsis">{post.data.title}</div>
+            </h2>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
 
-	<h2 class="section-heading">Part 2: Reflections on Death</h2>
-	<ol class="post-list stack">
-		{
-			part2.map((post) => (
-				<li class="post-item" data-date={post.data.date.setFullYear(2024)} data-upcoming="false">
-					<a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
-						<div class="post-item__meta">
-							{post.data.week}
-						</div>
-						<div class="post-item__meta">
-							<FormattedDate date={post.data.date}></FormattedDate>
-						</div>
-						<h2 class="post-item__title min-inline-size:0">
-							<div class="overflow-ellipsis">{post.data.title}</div>
-						</h2>
-					</a>
-				</li>
-			))
-		}
-	</ol>
+  <h2 class="section-heading">Part 2: Reflections on Death</h2>
+  <ol class="post-list stack">
+    {
+      part2.map((post) => (
+        <li
+          class="post-item"
+          data-date={post.data.date.setFullYear(2024)}
+          data-upcoming="false"
+        >
+          <a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
+            <div class="post-item__meta">{post.data.week}</div>
+            <div class="post-item__meta">
+              <FormattedDate date={post.data.date} />
+            </div>
+            <h2 class="post-item__title min-inline-size:0">
+              <div class="overflow-ellipsis">{post.data.title}</div>
+            </h2>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
 
-	<!-- <h2 class="section-heading">Part 3: Reshaped by Hope and New Life</h2> -->
-	<!-- <h2 class="section-heading">Part 4: Children of the Resurrection</h2> -->
+  <!-- <h2 class="section-heading">Part 3: Reshaped by Hope and New Life</h2> -->
+  <!-- <h2 class="section-heading">Part 4: Children of the Resurrection</h2> -->
 </Archive>
 
 <script is:inline>
-	let today = new Date();
-	today.setFullYear(2024);
-	today.setHours(0, 0, 0, 0);
-	// today = 1734286658000; // testing
+  let today = new Date();
+  today.setFullYear(2024);
+  today.setHours(0, 0, 0, 0);
+  // today = 1734286658000; // testing
 
-	let posts = document.querySelectorAll('[data-date]');
-	posts.forEach((post, i) => {
-		if (today < post.dataset.date) {
-			post.dataset.upcoming = true;
-		}
-	});
+  let posts = document.querySelectorAll("[data-date]");
+  posts.forEach((post, i) => {
+    if (today < post.dataset.date) {
+      post.dataset.upcoming = true;
+    }
+  });
 </script>
 
 <style>
-	:global(.site-main) {
-		max-inline-size: 100%;
-	}
-
-	.section-heading {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-section-heading);
-		font-weight: 400;
-		margin-block-end: calc(var(--space-2xs) * 1.125);
-		margin-block-start: var(--space-l-xl);
-		text-transform: uppercase;
-
-		&:first-child {
-			margin-block-start: 0;
-		}
-	}
-
-	.post-list {
-		clip-path: inset(-100% 0 -100% -100%);
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.post-item {
-		border-bottom: 1px solid var(--color-border);
-		margin-block: 0;
-		position: relative;
-		
-		* {
-			color: inherit;
-			margin-block: 0;
-		}
-	}
-
-	[data-upcoming="false"]:has( + [data-upcoming="true"]) {
-		color: var(--color-accent);
-
-		&::before {
-			align-items: center;
-			block-size: 100%;
-			color: var(--color-accent);
-			content: '►';
-			display: flex;
-			font-size: var(--font-size--1);
-			font-family: var(--font-mono);
-			position: absolute;
-			left: -1.25ch;
-		}
-
-		&:hover,
-		&:focus-within {
-			* {
-				color: var(--color-accent);
-			}
-		}
-	}
-
-	.post-item__link {
-		align-items: flex-start;
-		column-gap: var(--space-xs-2xl);
-		flex-wrap: nowrap;
-		padding-block: calc(var(--space-2xs) * 1.125);
-		row-gap: 0;
-		white-space: nowrap;
-		text-decoration: none;
-		transition: 0.1s linear;
-
-		> * {
-			transition: transform 0.2s var(--ease-authentic);
-		}
-
-		&:hover,
-		&:focus-visible {
-			background-color: var(--color-bg-hover);
-			color: var(--color-text);
-		}
-	}
-
-	@media (hover: hover) and (min-width: 500px) {
-		.post-item__link {
-
-			&:hover,
-			&:focus-visible {
-
-				> * {
-					transform: translateX(1ch);
-				}
-			}
-		}
-	}
-
-	.post-item__meta {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-meta);
-		font-weight: 400;
-		line-height: 1;
-	}
-
-	.post-item__title {
-		font-family: var(--font-sans-display);
-		font-size: var(--font-size-meta);
-		font-weight: 700;
-		line-height: 1;
-	}
+  :global(.site-main) {
+    max-inline-size: 100%;
+  }
 </style>

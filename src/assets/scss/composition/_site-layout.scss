@@ -13,7 +13,11 @@
 .site-main {
   inline-size: 100%;
   margin-inline: auto;
-  padding-block: var(--space-section);
+  padding-block-start: var(--space-section);
   padding-inline: var(--site-gutter);
   position: relative;
+}
+
+.site-footer {
+  margin-block-start: var(--space-section);
 }

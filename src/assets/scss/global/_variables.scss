@@ -1,40 +1,40 @@
 /* Font-face
 ---------------------------------- */
 @font-face {
-	font-family: 'Neue Montreal';
-	src: url('/fonts/PPNeueMontreal-Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Neue Montreal';
-	src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Neue Montreal Mono';
-	src: url('/fonts/PPNeueMontrealMono-Book.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/PPNeueMontrealMono-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-
   /* Font-family
   ---------------------------------- */
-  --font-sans-base: 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, system-ui, sans-serif;
-  --font-sans: 'Neue Montreal', var(--font-sans-base);
-  --font-sans-display: 'Neue Montreal', var(--font-sans-base);
-  --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', 'Georgia', P052, serif;
-  --font-serif-display: 'Castoro Titling', var(--font-serif);
-  --font-mono: 'Neue Montreal Mono', monospace;
-
+  --font-sans-base: "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+    system-ui, sans-serif;
+  --font-sans: "Neue Montreal", var(--font-sans-base);
+  --font-sans-display: "Neue Montreal", var(--font-sans-base);
+  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype",
+    "URW Palladio L", "Georgia", P052, serif;
+  --font-serif-display: "Castoro Titling", var(--font-serif);
+  --font-mono: "Neue Montreal Mono", monospace;
 
   /* Font-size
   ---------------------------------- */
@@ -56,7 +56,6 @@
   /* Custom */
   --font-size-section-heading: var(--font-size--3);
   --font-size-meta: var(--font-size--1);
-
 
   /* Margin and Padding
   ---------------------------------- */
@@ -91,43 +90,33 @@
   --space-stack: var(--space-m);
   --space-section: var(--space-xl-2xl);
 
-
   /* Other Measures
   ---------------------------------- */
-  --measure: 55ch;
+  --measure: 60ch;
   --radius: 1.125rem;
-  --site-gutter: var(--space-s);
+  --site-gutter: var(--space-s-m);
   --letter-spacing: 0.25rem;
   --letter-spacing-prose: -0.005ch;
   --letter-spacing-prose-l: 0.01ch;
 
-
   /* Shadows
   ---------------------------------- */
-  --box-shadow:
-    0px 0.3px 1.7px rgba(0, 0, 0, 0.013),
-    0px 0.7px 4px rgba(0, 0, 0, 0.022),
-    0px 1.3px 7.5px rgba(0, 0, 0, 0.029),
-    0px 2.2px 13.4px rgba(0, 0, 0, 0.034),
-    0px 4.2px 25.1px rgba(0, 0, 0, 0.041),
+  --box-shadow: 0px 0.3px 1.7px rgba(0, 0, 0, 0.013),
+    0px 0.7px 4px rgba(0, 0, 0, 0.022), 0px 1.3px 7.5px rgba(0, 0, 0, 0.029),
+    0px 2.2px 13.4px rgba(0, 0, 0, 0.034), 0px 4.2px 25.1px rgba(0, 0, 0, 0.041),
     0px 10px 60px rgba(0, 0, 0, 0.06);
-  --box-shadow-high:
-    0px 1.7px 2.2px rgba(0, 0, 0, 0.02),
-    0px 4px 5.3px rgba(0, 0, 0, 0.02),
-    0px 7.5px 10px rgba(0, 0, 0, 0.03),
-    0px 12px 17.9px rgba(0, 0, 0, 0.035),
-    0px 13px 20.4px rgba(0, 0, 0, 0.042),
+  --box-shadow-high: 0px 1.7px 2.2px rgba(0, 0, 0, 0.02),
+    0px 4px 5.3px rgba(0, 0, 0, 0.02), 0px 7.5px 10px rgba(0, 0, 0, 0.03),
+    0px 12px 17.9px rgba(0, 0, 0, 0.035), 0px 13px 20.4px rgba(0, 0, 0, 0.042),
     0px 5px 10px rgba(0, 0, 0, 0.02);
-
 
   /* Motion
   ---------------------------------- */
-  --ease-in: cubic-bezier(.895, .03, .685, .22);
-  --ease-out: cubic-bezier(.165, .84, .44, 1);
-  --ease-in-out: cubic-bezier(0.86,0,0.07,1);
+  --ease-in: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-in-out: cubic-bezier(0.86, 0, 0.07, 1);
   --ease-authentic: cubic-bezier(0.4, 0, 0.2, 1);
-  --cubic-wipe: cubic-bezier(.79, .14, .15, .86);
-
+  --cubic-wipe: cubic-bezier(0.79, 0.14, 0.15, 0.86);
 
   /* Colors
   ---------------------------------- */
@@ -144,7 +133,7 @@
 
   --color-blue: hsl(198, 57%, 37%);
   --color-bronze: hsl(22, 28%, 42%);
-  --color-accent:	var(--color-bronze);
+  --color-accent: var(--color-bronze);
 
   &[data-user-theme="dark"] {
     --color-bg: hsl(0, 0%, 10%);
@@ -155,7 +144,6 @@
     --color-blue: hsl(198, 57%, 50%);
     --color-bronze: hsl(22, 28%, 51%);
   }
-
 
   /* Media Queries
   ---------------------------------- */

@@ -1,9 +1,10 @@
 .prose {
+  font-family: var(--font-serif);
   letter-spacing: var(--letter-spacing-prose-l);
-  margin-block-start: var(--space-m);
   margin-inline: auto;
   max-inline-size: var(--measure);
   overflow: hidden;
+  text-align: justify;
 
   @media (min-width: 500px) {
     max-inline-size: min(var(--measure), 85vw);
@@ -19,7 +20,7 @@
     text-transform: uppercase;
 
     &::after {
-      border-block-end: 1px dotted var(--color-text);
+      border-block-end: 1px dotted var(--color-border);
       content: "";
       flex-grow: 1;
       margin-block-end: 0.225em;
@@ -46,10 +47,10 @@
     }
   }
 
-  #readings {
-    + ul {
-      list-style: none;
-      padding: 0;
+  #response {
+    + ul,
+    + ol {
+      padding-inline-start: var(--space-s);
     }
   }
 }

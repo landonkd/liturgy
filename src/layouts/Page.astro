@@ -1,38 +1,34 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
+import BaseHead from "../components/BaseHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-user-theme="dark">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+  <body class="site-layout">
+    <SiteHeader title={title} />
 
-	<body class="site-layout">
+    <main class="site-main prose">
+      <slot />
+    </main>
 
-		<SiteHeader title={title} />
-
-		<main class="site-main">
-			<slot />
-		</main>
-
-		<SiteFooter />
-
-	</body>
-
+    <SiteFooter />
+  </body>
 </html>
 
 <style>
-	.site-main {
-		max-inline-size: var(--measure);
+  .site-main {
+    max-inline-size: var(--measure);
 
-		@media (min-width: 500px) {
-			max-inline-size: min(var(--measure), 85vw);
-		}
-	}
+    @media (min-width: 500px) {
+      max-inline-size: min(var(--measure), 85vw);
+    }
+  }
 </style>

@@ -12,9 +12,9 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--font-size-0);
-  font-weight: 500;
-  line-height: 1.6;
-	overflow-wrap: break-word;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: break-word;
   position: relative;
   -webkit-font-smoothing: antialiased;
   word-wrap: break-word;
@@ -46,15 +46,19 @@ a {
   transition: color 0.1s, text-decoration-color 0.1s;
 
   &:not(.btn) {
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--color-accent);
       text-decoration-color: var(--color-accent);
     }
   }
 }
 
-
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-sans-display);
   font-weight: bold;
   margin-block-start: 0;
@@ -79,7 +83,8 @@ h3 {
   line-height: 1.2;
 }
 
-h4, h5 {
+h4,
+h5 {
   font-size: var(--font-size--1);
   line-height: 1.2;
 }
@@ -94,10 +99,6 @@ hr {
 .site-main ol {
   text-wrap: pretty;
 
-  @media (width < 600px) {
-    padding-inline-start: 2ch;
-  }
-  
   > * + * {
     margin-block-start: var(--space-2xs);
   }

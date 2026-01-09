@@ -1,10 +1,21 @@
 ---
-import Page from '../layouts/Page.astro';
+import Page from "../layouts/Page.astro";
 ---
 
-<Page title="About" description="Welcome to a copy/paste of Bema Liturgy with (hopefully) better typography.">
-	<h1>About</h1>
-	<p>
-		Welcome, to a copy/paste of <a href="https://www.bemaliturgy.com/">Bema Liturgy</a> with, hopefully, a more considered reading experience.
-	</p>
+<Page
+  title="About"
+  description="Welcome to a copy/paste of Bema Liturgy with (hopefully) better typography."
+>
+  <h1>About</h1>
+  <p>
+    A copy/paste of <a href="https://www.bemaliturgy.com/">BEMA Liturgy</a> with a
+    customized reading experience.
+  </p>
 </Page>
+
+<style>
+  p {
+    text-align: left;
+    text-wrap: pretty;
+  }
+</style>

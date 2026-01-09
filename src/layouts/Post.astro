@@ -1,87 +1,266 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_TITLE } from "../consts";
 
-type Props = CollectionEntry<'liturgy'>['data'];
+type Props = CollectionEntry<"liturgy">["data"];
 
-const { title, description, week, date } = Astro.props;
+const { title, description, week, date, readings } = Astro.props;
 ---
 
 <html lang="en" data-user-theme="dark">
+  <head>
+    <BaseHead title={week + " — " + title} description={description} />
+  </head>
 
-	<head>
-		<BaseHead title={week + ' — ' + title} description={description} />
-	</head>
+  <body>
+    <SiteHeader />
 
-	<body>
-		<SiteHeader />
+    <main class="site-main">
+      <article class="post">
+        <header class="post-header">
+          <div class="post-header__inner stack">
+            <div class="post-nav">
+              <a class="site-title" href="/">
+                {SITE_TITLE}
+              </a>
+            </div>
+            <h1 class="post-title">{title}</h1>
+            {
+              readings && readings.length > 0 && (
+                <div class="post-readings prose">
+                  <h2 class="section-heading">Readings</h2>
+                  <ul class="post-list stack">
+                    {readings.map((reading) => (
+                      <li class="post-item">
+                        {reading.url ? (
+                          <a class="post-item__link cluster" href={reading.url}>
+                            <span class="post-item__title">
+                              {reading.title}
+                            </span>
+                            {/* <span class="icon">↗</span> */}
+                          </a>
+                        ) : (
+                          <span class="post-item__title">{reading.title}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            }
+            <div class="post-meta">
+              <span class="sr-only">Week and Start Date:</span>
+              {week}<span class="spacer"></span>
+              <FormattedDate date={date} />
+            </div>
+          </div>
+        </header>
+        <div class="prose stack">
+          <slot />
+        </div>
+      </article>
 
-		<main class="site-main">
-
-			<article class="post">
-				<header class="post-header">
-					<h1 class="post-title">{title}</h1>
-					<div class="post-meta">
-						<span class="sr-only">Week and Start Date:</span>{week}<span class="spacer"></span><FormattedDate date={date}></FormattedDate>
-					</div>
-				</header>
-				<div class="prose stack">
-					<slot />
-				</div>
-			</article>
-
-		</main>
-
-		<SiteFooter />
-
-	</body>
-
+      <SiteFooter />
+    </main>
+  </body>
 </html>
 
 <style>
-	.spacer {
-		display: inline-block;
-		inline-size: var(--space-xs);
-	}
+  :global(.site-header) {
+    .site-title {
+      @media (min-width: 1040px) {
+        visibility: hidden;
+      }
+    }
+  }
 
-	.post-header {
-		max-inline-size: 80ch;
-		margin-inline: auto;	
-		padding-block-end: var(--space-l);
-		text-align: center;
-	}
+  :global(.site-main) {
+    padding-block-start: 0 !important;
+  }
 
-	.post-title {
-		font-family: var(--font-serif-display);
-		font-size: var(--font-size-3);
-		font-weight: 400;
-		letter-spacing: var(--letter-spacing);
-		text-wrap: balance;
+  .spacer {
+    display: inline-block;
+    inline-size: var(--space-xs);
+  }
 
-		@media (min-width: 600px) {
-			font-size: var(--font-size-4);
-		}
+  .post {
+    @media (min-width: 1040px) {
+      display: grid;
+      gap: var(--site-gutter);
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "h p p";
+    }
 
-		@media (min-width: 750px) {
-			font-size: var(--font-size-5);
-		}
+    @media (min-width: 1100px) {
+      gap: var(--space-xl);
+    }
+  }
 
-		@media (min-width: 1200px) {
-			font-size: var(--font-size-6);
-		}
-	}
+  .prose {
+    margin-block-start: var(--space-xl-2xl);
 
-	.post-meta {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-meta);
-		font-weight: 400;
-		margin-block-start: var(--space-2xs);
+    @media (min-width: 1040px) {
+      grid-area: p;
+      margin-block-start: calc(50vh - var(--site-gutter) * 3);
+    }
+  }
 
-		+ .post-meta {
-			margin-block-start: 0;
-		}
-	}
+  .post-header {
+    max-inline-size: 80ch;
+    margin-inline: auto;
+    text-align: center;
+
+    @media (min-width: 1040px) {
+      grid-area: h;
+      text-align: left;
+    }
+  }
+
+  .post-header__inner {
+    padding-block-start: var(--space-section);
+
+    @media (min-width: 1040px) {
+      block-size: calc(100vh - var(--site-gutter) * 2);
+      border: 1px solid var(--color-border);
+      margin-block-start: calc(-1 * var(--site-gutter) * 2);
+      padding: var(--site-gutter) var(--site-gutter);
+      position: sticky;
+      top: var(--site-gutter);
+    }
+  }
+
+  .post-nav {
+    .site-title {
+      display: none;
+
+      @media (min-width: 1040px) {
+        display: flex;
+      }
+    }
+  }
+
+  .post-title {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-3);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing);
+    margin-block: var(--space-stack) auto;
+    min-inline-size: 10ch;
+    text-wrap: balance;
+
+    @media (min-width: 600px) {
+      font-size: var(--font-size-4);
+    }
+
+    @media (min-width: 700px) {
+      font-size: var(--font-size-5);
+    }
+
+    @media (min-width: 1040px) {
+      font-size: var(--font-size-4);
+    }
+
+    @media (min-width: 1400px) and (min-height: 800px) {
+      font-size: var(--font-size-5);
+    }
+
+    @media (min-width: 1600px) and (min-height: 975px) {
+      font-size: var(--font-size-6);
+    }
+
+    @media (height < 880px) {
+      font-size: var(--font-size-4);
+    }
+
+    @media (height < 750px) {
+      font-size: var(--font-size-3);
+    }
+
+    @media (height < 680px) {
+      font-size: var(--font-size-2);
+    }
+  }
+
+  .post-readings {
+    font-size: var(--font-size-0);
+    font-family: var(--font-serif);
+    inline-size: 100%;
+    margin-block: var(--space-l) 0;
+    margin-inline: auto;
+    max-inline-size: min(var(--measure), 85vw);
+    overflow-y: auto;
+    scrollbar-color: var(--color-text) var(--color-bg);
+    text-align: left;
+
+    @media (min-width: 1040px) {
+      margin-inline: 0;
+    }
+
+    h2 {
+      @media (min-width: 1040px) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-block: var(--space-2xs) 0;
+      padding-inline-start: 0;
+    }
+  }
+
+  .post-meta {
+    font-family: var(--font-mono);
+    font-size: var(--font-size--1);
+    font-weight: 400;
+    margin-block-start: var(--space-stack);
+
+    + .post-title {
+      margin-block-start: var(--space-s);
+    }
+
+    + .post-meta {
+      margin-block-start: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .post-item:not(:has(.post-item__link)) {
+    .post-item__title {
+      display: flex;
+      padding-block: calc(var(--space-2xs) * 1.125);
+    }
+  }
+
+  .post-item__link {
+    justify-content: space-between;
+
+    .icon {
+      color: var(--color-border);
+      font-size: var(--font-size--1);
+      transform: translateX(0ch);
+    }
+
+    &:hover,
+    &:focus-visible {
+      .icon {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  .post-item__title {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-0);
+    font-weight: 400;
+  }
 </style>
