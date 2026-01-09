@@ -20,7 +20,7 @@ const { title, description, week, date, readings } = Astro.props;
     <SiteHeader />
 
     <main class="site-main">
-      <article class="post">
+      <article class="post" data-post-date={date}>
         <header class="post-header">
           <div class="post-header__inner stack">
             <div class="post-nav">
@@ -52,7 +52,11 @@ const { title, description, week, date, readings } = Astro.props;
                 </div>
               )
             }
-            <div class="post-meta">
+            <div
+              class="post-meta"
+              data-date={date.setFullYear(2024)}
+              data-active="false"
+            >
               <span class="sr-only">Week and Start Date:</span>
               {week}<span class="spacer"></span>
               <FormattedDate date={date} />
@@ -68,6 +72,31 @@ const { title, description, week, date, readings } = Astro.props;
     </main>
   </body>
 </html>
+
+<script is:inline>
+  // Check if today is within 7 days of post date on page load
+  const postDateStr = document.querySelector("article.post").dataset.postDate;
+  const dateEl = document.querySelector(".post-meta");
+
+  if (postDateStr && dateEl) {
+    // Get today's date
+    let today = new Date();
+    today.setFullYear(2024);
+    today.setHours(0, 0, 0, 0);
+
+    // Do the date comparison
+    const postDate = new Date(postDateStr);
+    const daysDifference = Math.ceil(
+      (postDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
+    );
+    const isWithinSevenDays = daysDifference >= -7 && daysDifference <= 7;
+
+    // Add class or data attribute to body for CSS targeting
+    if (isWithinSevenDays) {
+      dateEl.dataset.active = "true";
+    }
+  }
+</script>
 
 <style>
   :global(.site-header) {
@@ -131,6 +160,15 @@ const { title, description, week, date, readings } = Astro.props;
       position: sticky;
       top: var(--site-gutter);
     }
+
+    @media (width < 1040px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "t"
+        "m"
+        "r";
+    }
   }
 
   .post-nav {
@@ -151,6 +189,11 @@ const { title, description, week, date, readings } = Astro.props;
     margin-block: var(--space-stack) auto;
     min-inline-size: 10ch;
     text-wrap: balance;
+
+    @media (width < 1040px) {
+      grid-area: t;
+      margin-block-start: 0;
+    }
 
     @media (min-width: 600px) {
       font-size: var(--font-size-4);
@@ -200,6 +243,10 @@ const { title, description, week, date, readings } = Astro.props;
       margin-inline: 0;
     }
 
+    @media (width < 1040px) {
+      grid-area: r;
+    }
+
     h2 {
       @media (min-width: 1040px) {
         &::after {
@@ -220,6 +267,28 @@ const { title, description, week, date, readings } = Astro.props;
     font-size: var(--font-size--1);
     font-weight: 400;
     margin-block-start: var(--space-stack);
+
+    @media (width < 1040px) {
+      grid-area: m;
+      margin-block-start: var(--space-xs);
+    }
+
+    &[data-active="true"] {
+      color: var(--color-accent);
+      position: relative;
+
+      &::before {
+        align-items: center;
+        block-size: 100%;
+        color: var(--color-accent);
+        content: "►";
+        display: flex;
+        font-size: var(--font-size--1);
+        font-family: var(--font-mono);
+        position: absolute;
+        left: -1.25ch;
+      }
+    }
 
     + .post-title {
       margin-block-start: var(--space-s);
