@@ -134,7 +134,7 @@ const { title, description, week, date, readings } = Astro.props;
   }
 
   .prose {
-    margin-block-start: var(--space-xl-2xl);
+    margin-block-start: var(--space-section);
 
     @media (min-width: 1040px) {
       grid-area: p;
@@ -242,6 +242,7 @@ const { title, description, week, date, readings } = Astro.props;
     margin-block: var(--space-l) 0;
     margin-inline: auto;
     max-inline-size: min(var(--measure), 85vw);
+    overflow-x: hidden;
     overflow-y: auto;
     scrollbar-color: var(--color-text) var(--color-bg);
     text-align: left;
@@ -264,8 +265,12 @@ const { title, description, week, date, readings } = Astro.props;
 
     ul {
       list-style: none;
-      margin-block: var(--space-2xs) 0;
+      margin-block: var(--space-xs) 0;
       padding-inline-start: 0;
+
+      @media (min-width: 1040px) {
+        margin-block-start: var(--space-2xs);
+      }
     }
   }
 
