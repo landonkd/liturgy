@@ -72,6 +72,10 @@
     background-color: var(--color-bg-hover);
     color: var(--color-text);
   }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--color-bg-hover) 90%, black 10%);
+  }
 }
 
 @media (hover: hover) and (min-width: 500px) {

@@ -13,7 +13,7 @@ const { title, description, week, date, readings } = Astro.props;
 
 <html lang="en" data-user-theme="dark">
   <head>
-    <BaseHead title={week + " — " + title} description={description} />
+    <BaseHead title={week + "—" + title} description={description} />
   </head>
 
   <body>
@@ -37,12 +37,17 @@ const { title, description, week, date, readings } = Astro.props;
                     {readings.map((reading) => (
                       <li class="post-item">
                         {reading.url ? (
-                          <a class="post-item__link cluster" href={reading.url}>
+                          <div class="cluster">
                             <span class="post-item__title">
                               {reading.title}
                             </span>
-                            {/* <span class="icon">↗</span> */}
-                          </a>
+                            <a
+                              aria-label="External link to reading"
+                              href={reading.url}
+                            >
+                              ►
+                            </a>
+                          </div>
                         ) : (
                           <span class="post-item__title">{reading.title}</span>
                         )}
@@ -87,9 +92,6 @@ const { title, description, week, date, readings } = Astro.props;
       (postDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
     );
     const isWithinSevenDays = daysDifference >= -7 && daysDifference <= 0;
-    console.log(postDate.getTime());
-    console.log(today.getTime());
-    console.log(daysDifference);
 
     // Add class or data attribute to body for CSS targeting
     if (isWithinSevenDays) {
@@ -126,6 +128,7 @@ const { title, description, week, date, readings } = Astro.props;
 
     @media (min-width: 1100px) {
       gap: var(--space-xl);
+      padding-inline-end: calc(var(--space-xl) - var(--site-gutter));
     }
   }
 
@@ -150,6 +153,7 @@ const { title, description, week, date, readings } = Astro.props;
   }
 
   .post-header__inner {
+    overflow: hidden;
     padding-block-start: var(--space-section);
 
     @media (min-width: 1040px) {
@@ -266,11 +270,13 @@ const { title, description, week, date, readings } = Astro.props;
     font-family: var(--font-mono);
     font-size: var(--font-size--1);
     font-weight: 400;
+    inline-size: fit-content;
     margin-block-start: var(--space-l);
 
     @media (width < 1040px) {
       grid-area: m;
       margin-block-start: var(--space-xs);
+      margin-inline: auto;
     }
 
     &[data-active="true"] {
@@ -289,47 +295,34 @@ const { title, description, week, date, readings } = Astro.props;
         left: -1.25ch;
       }
     }
+  }
 
-    + .post-title {
-      margin-block-start: var(--space-s);
-    }
-
-    + .post-meta {
-      margin-block-start: 0;
+  .post-item {
+    .cluster {
+      justify-content: space-between;
     }
 
     a {
-      text-decoration: none;
-    }
-  }
-
-  .post-item:not(:has(.post-item__link)) {
-    .post-item__title {
-      display: flex;
-      padding-block: calc(var(--space-2xs) * 1.125);
-    }
-  }
-
-  .post-item__link {
-    justify-content: space-between;
-
-    .icon {
       color: var(--color-border);
+      display: flex;
+      font-family: var(--font-mono);
       font-size: var(--font-size--1);
-      transform: translateX(0ch);
-    }
+      padding-block: var(--space-3xs);
+      padding-inline: var(--space-m) 0;
+      text-decoration: none;
 
-    &:hover,
-    &:focus-visible {
-      .icon {
+      &:hover,
+      &:focus-visible {
         color: var(--color-accent);
       }
     }
   }
 
   .post-item__title {
+    display: flex;
     font-family: var(--font-serif);
     font-size: var(--font-size-0);
     font-weight: 400;
+    padding-block: calc(var(--space-2xs) * 1.125);
   }
 </style>
