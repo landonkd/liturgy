@@ -6,6 +6,27 @@ const today = new Date();
 	<p>&copy; {today.getFullYear()} Liturgy. All rights reserved. ΔΩ. <a href="/about">About</a></p>
 </footer>
 
+<svg
+	style="position:absolute; bottom:0; pointer-events:none; user-select:none;"
+>
+	<defs>
+		<filter id="distortion">
+			<feTurbulence
+				baseFrequency="0.01 0.01"
+				result="NOISE"
+				numOctaves="1"></feTurbulence>
+			<feDisplacementMap
+				in="SourceGraphic"
+				in2="NOISE"
+				scale="2"
+				xChannelSelector="R"
+				yChannelSelector="R"
+			>
+			</feDisplacementMap>
+		</filter>
+	</defs>
+</svg>
+
 <style>
 	.site-footer {
 		background-color: var(--color-bg);

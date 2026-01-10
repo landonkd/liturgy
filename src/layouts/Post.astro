@@ -31,7 +31,7 @@ const { title, description, week, date, readings } = Astro.props;
             <h1 class="post-title">{title}</h1>
             {
               readings && readings.length > 0 && (
-                <div class="post-readings prose">
+                <div class="post-readings">
                   <h2 class="section-heading">Readings</h2>
                   <ul class="post-list stack">
                     {readings.map((reading) => (
@@ -67,9 +67,9 @@ const { title, description, week, date, readings } = Astro.props;
         <div class="prose stack">
           <slot />
         </div>
-      </article>
 
-      <SiteFooter />
+        <SiteFooter />
+      </article>
     </main>
   </body>
 </html>
@@ -160,6 +160,8 @@ const { title, description, week, date, readings } = Astro.props;
       block-size: calc(100vh - var(--site-gutter) * 2);
       border: 1px solid var(--color-border);
       margin-block-start: calc(-1 * var(--site-gutter) * 2);
+      outline: 1px solid var(--color-border);
+      outline-offset: 3px;
       padding: var(--site-gutter) var(--site-gutter);
       position: sticky;
       top: var(--site-gutter);
