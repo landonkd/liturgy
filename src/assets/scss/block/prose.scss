@@ -10,29 +10,6 @@
     max-inline-size: min(var(--measure), 85vw);
   }
 
-  h2 {
-    inline-size: fit-content;
-    font-family: var(--font-mono);
-    font-size: var(--font-size-section-heading);
-    font-weight: 400;
-    position: relative;
-    overflow: visible;
-    text-transform: uppercase;
-
-    &::after {
-      border-block-end: 1px dotted var(--color-border);
-      content: "";
-      flex-grow: 1;
-      margin-block-end: 0.225em;
-      display: block;
-      bottom: 0;
-      position: absolute;
-      inline-size: 100vw;
-      z-index: -1;
-      left: calc(100% + var(--space-3xs));
-    }
-  }
-
   h2 + p:first-line {
     font-family: var(--font-serif-display);
   }
@@ -52,5 +29,29 @@
     + ol {
       padding-inline-start: var(--space-s);
     }
+  }
+}
+
+.section-heading-dots,
+.prose h2 {
+  inline-size: fit-content;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-section-heading);
+  font-weight: 400;
+  position: relative;
+  overflow: visible;
+  text-transform: uppercase;
+
+  &::after {
+    border-block-end: 1px dotted var(--color-border);
+    content: "";
+    flex-grow: 1;
+    margin-block-end: 0.225em;
+    display: block;
+    bottom: 0;
+    position: absolute;
+    inline-size: 100vw;
+    z-index: -1;
+    left: calc(100% + var(--space-3xs));
   }
 }

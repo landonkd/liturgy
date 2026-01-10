@@ -32,7 +32,7 @@ const { title, description, week, date, readings } = Astro.props;
             {
               readings && readings.length > 0 && (
                 <div class="post-readings">
-                  <h2 class="section-heading">Readings</h2>
+                  <h2 class="section-heading-dots">Readings</h2>
                   <ul class="post-list stack">
                     {readings.map((reading) => (
                       <li class="post-item">
@@ -253,7 +253,7 @@ const { title, description, week, date, readings } = Astro.props;
       grid-area: r;
     }
 
-    h2 {
+    .section-heading-dots {
       @media (min-width: 1040px) {
         &::after {
           display: none;
