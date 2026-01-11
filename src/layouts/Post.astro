@@ -92,7 +92,7 @@ const { title, description, week, date, readings } = Astro.props;
     const daysDifference = Math.ceil(
       (postDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
     );
-    const isWithinSevenDays = daysDifference >= -7 && daysDifference <= 0;
+    const isWithinSevenDays = daysDifference > -7 && daysDifference <= 0;
 
     // Add class or data attribute to body for CSS targeting
     if (isWithinSevenDays) {
@@ -212,6 +212,7 @@ const { title, description, week, date, readings } = Astro.props;
 
     @media (min-width: 1040px) {
       font-size: var(--font-size-4);
+      max-inline-size: 15ch;
     }
 
     @media (min-width: 1400px) and (min-height: 800px) {
@@ -230,7 +231,7 @@ const { title, description, week, date, readings } = Astro.props;
       font-size: var(--font-size-3);
     }
 
-    @media (height < 680px) {
+    @media (min-width: 1040px) and (height < 680px) {
       font-size: var(--font-size-2);
     }
   }
