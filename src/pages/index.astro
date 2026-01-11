@@ -3,14 +3,6 @@ import Archive from "../layouts/Archive.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 
-// const posts = (await getCollection('liturgy')).sort(
-// 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-// );
-
-// const posts = (await getCollection('liturgy')).sort(
-// 	(a, b) => a.data.week.localeCompare(b.data.week)
-// );
-
 const part1 = (
   await getCollection("liturgy", ({ id }) => {
     return id.startsWith("part-1/");
@@ -20,6 +12,12 @@ const part1 = (
 const part2 = (
   await getCollection("liturgy", ({ id }) => {
     return id.startsWith("part-2/");
+  })
+).sort((a, b) => a.data.week.localeCompare(b.data.week));
+
+const part3 = (
+  await getCollection("liturgy", ({ id }) => {
+    return id.startsWith("part-3/");
   })
 ).sort((a, b) => a.data.week.localeCompare(b.data.week));
 ---
@@ -63,7 +61,25 @@ const part2 = (
     }
   </ol>
 
-  <!-- <h2 class="section-heading">Part 3: Reshaped by Hope and New Life</h2> -->
+  <h2 class="section-heading">Part 3: Reshaped by Hope and New Life</h2>
+  <ol class="post-list stack">
+    {
+      part3.map((post) => (
+        <li class="post-item" data-date={post.data.date} data-upcoming="false">
+          <a class="post-item__link cluster" href={`/posts/${post.slug}/`}>
+            <div class="post-item__meta">{post.data.week}</div>
+            <div class="post-item__meta">
+              <FormattedDate date={post.data.date} />
+            </div>
+            <h2 class="post-item__title min-inline-size:0">
+              <div class="overflow-ellipsis">{post.data.title}</div>
+            </h2>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
   <!-- <h2 class="section-heading">Part 4: Children of the Resurrection</h2> -->
 </Archive>
 
